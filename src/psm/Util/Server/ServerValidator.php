@@ -98,8 +98,11 @@ class ServerValidator
                 // Regex looks a bit weird, but otherwise it's more then 120 characters
                 if (
                     !preg_match_all(
-                        "/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\." .
-                        "[a-z]{2,12}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/",
+                        // "/(http(s)?\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\." .
+                        // "[a-z]{2,12}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/",
+
+                        "/(http(s)?:\/\/)?([-a-zA-Z0-9@:%._\+~#=]{1,256})" .
+                        "\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/",
                         $value
                     )
                 ) {
