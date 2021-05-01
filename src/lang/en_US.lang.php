@@ -134,11 +134,12 @@ $sm_lang = array(
         'jabber_label' => 'Jabber',
         'jabber_description' => 'You Jabber account',
         'webhook' => 'Webhook',
-        'webhook_description' => 'Send a json webhook to a certain endpoint.',
+        'webhook_description' => 'Send a json webhook to a certain endpoint. <br/> The json can be customized, e.g. {
+"text":"servermon: #message"}',
         'webhook_url' => 'Webhook Url',
         'webhook_url_description' => 'Webhook public endpoint url, should start with https://.',
         'webhook_json' => 'Webhook JSON',
-        'webhook_json_description' => 'Define a custom json, e.g. {"username": "servermon: #server_label" "text": "#server_ip is **#status**"}.<br>Available variables: #message, #server_error, #server_ip, #server_label, #server_last_offline_duration and #status',
+        'webhook_json_description' => 'Define a custom json, use #message as message variable.',
         'delete_title' => 'Delete User',
         'delete_message' => 'Are you sure you want to delete user \'%1\'?',
         'deleted' => 'User deleted.',
@@ -296,7 +297,6 @@ $sm_lang = array(
         'proxy_user' => 'Proxy username',
         'proxy_password' => 'Proxy password',
         'email_status' => 'Allow sending email',
-        'email_add_url' => 'Add url to the monitor in email',
         'email_from_email' => 'Email from address',
         'email_from_name' => 'Email from name',
         'email_smtp' => 'Enable SMTP',
@@ -319,14 +319,13 @@ $sm_lang = array(
         'webhook_url' => 'Webhook Url',
         'webhook_url_description' => 'Url to webhook endpoint',
         'webhook_json' => 'Webhook Json',
-        'webhook_json_description' => 'Define a custom json. Available variables: #message, #server_error, #server_ip, #server_label, #server_last_offline_duration and #status',
+        'webhook_json_description' => 'Customized Json, use #message as message variable.',
         'pushover_status' => 'Allow sending Pushover messages',
         'pushover_description' => 'Pushover is a service that makes it easy to get real-time notifications. See <a href="https://pushover.net/" target="_blank">their website</a> for more info.',
         'pushover_clone_app' => 'Click here to create your Pushover app',
         'pushover_api_token' => 'Pushover App API Token',
         'pushover_api_token_description' => 'Before you can use Pushover, you need to <a href="%1$s" target="_blank" rel="noopener">register an App</a> at their website and enter the App API Token here.',
         'telegram_status' => 'Allow sending Telegram messages',
-        'telegram_add_url' => 'Add url to the monitor in the message',
         'telegram_description' => '<a href="https://telegram.org/" target="_blank">Telegram</a> is a chat app that makes it easy to get real-time notifications. Visit the <a href="http://docs.phpservermonitor.org/" target="_blank">documentation</a> for more info and an install guide.',
         'telegram_api_token' => 'Telegram API Token',
         'telegram_api_token_description' => 'Before you can use Telegram, you need to get a API token. Visit the <a href="http://docs.phpservermonitor.org/" target="_blank">documentation</a> for help.',
@@ -477,34 +476,25 @@ $sm_lang = array(
         'off_sms' => 'Server \'%LABEL%\' is DOWN: ip=%IP%, port=%PORT%. Error=%ERROR%',
         'off_email_subject' => 'IMPORTANT: Server \'%LABEL%\' is DOWN',
         'off_email_body' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
-        'off_discord_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
-        'off_email_body' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port:
- %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
+        'off_discord_message' => '```Failed to connect to the following server```**Service Name**: %LABEL%<br>**URL**: %IP%<br>**Error**: %ERROR%<br>**When**: %DATE%',
+        'off_email_body' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port:%PORT%<br>Error: %ERROR%<br>Date: %DATE%',
         'off_webhook_title' => 'Server \'%LABEL%\' is DOWN',
-        'off_webhook_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP:
- %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
+        'off_webhook_message' => '*Failed to connect to the following server*<br>*Server*: %LABEL%<br>*URL*: %IP%<br>*Error*: %ERROR%<br>*When*: %DATE%',
         'off_pushover_title' => 'Server \'%LABEL%\' is DOWN',
         'off_pushover_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
-        'off_telegram_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
+        'off_telegram_message' => '<b>Failed to connect to the following server</b><br><b>Service Name</b>: %LABEL%<br><b>URL</b>: %IP%<br><b>Error</b>: %ERROR%<br><b>When</b>: %DATE%',
         'off_jabber_message' => 'Failed to connect to the following server:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Error: %ERROR%<br>Date: %DATE%',
         'on_sms' => 'Server \'%LABEL%\' is RUNNING: ip=%IP%, port=%PORT%, it was down for %LAST_OFFLINE_DURATION%',
         'on_email_subject' => 'IMPORTANT: Server \'%LABEL%\' is RUNNING',
-        'on_email_body' => 'Server \'%LABEL%\' is running again, it was down for
- %LAST_OFFLINE_DURATION%:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date:
- %DATE%',
-        'on_discord_message' => 'Server \'%LABEL%\' is running again, it was down for:
- %LAST_OFFLINE_DURATION%<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date: %DATE%',
-        'on_webhook_title' => 'Server \'%LABEL%\' is RUNNING',
-        'on_webhook_message' => 'Server \'%LABEL%\' is running again, it was down for
- %LAST_OFFLINE_DURATION%:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date:
- %DATE%',
+        'on_email_body' => 'Server \'%LABEL%\' is running again, it was down for %LAST_OFFLINE_DURATION%:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date: %DATE%',
+        'on_discord_message' => '```Server \'%LABEL%\' is running again, it was down for: %LAST_OFFLINE_DURATION%```**Service Name**: %LABEL%<br>**URL**: %IP%<br>**Date**: %DATE%',
+        'on_webhook_title' => 'Server \'%LABEL%\' is running again',
+        'on_webhook_message' => '*Server* _\'%LABEL%\'_ is running again, it was down for: _%LAST_OFFLINE_DURATION%_:<br>*Service Name*: %LABEL%<br>*URL*: %IP%<br>*Date*:%DATE%',
         'on_pushover_title' => 'Server \'%LABEL%\' is RUNNING',
         'on_pushover_message' => 'Server \'%LABEL%\' is running again, it was down for
  %LAST_OFFLINE_DURATION%:<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date:
  %DATE%',
-        'on_telegram_message' => 'Server \'%LABEL%\' is running again, it was down for:
- %LAST_OFFLINE_DURATION%<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date:
- %DATE%',
+        'on_telegram_message' => 'Server <b>\'%LABEL%\'</b> is running again, it was down for: <i>%LAST_OFFLINE_DURATION%</i><br><b>Service Name</b>: %LABEL%<br><b>URL</b>: %IP%<br><b>Date</b>: %DATE%',
         'on_jabber_message' => 'Server \'%LABEL%\' is running again, it was down for:
  %LAST_OFFLINE_DURATION%<br><br>Server: %LABEL%<br>IP: %IP%<br>Port: %PORT%<br>Date:
  %DATE%',
