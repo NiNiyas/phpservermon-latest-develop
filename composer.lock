@@ -89,12 +89,12 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mnsami/composer-custom-directory-installer/zipball/8cc82e0c5801cc3bf53ba452afdcaa5c6ff645a5",
+                "url": "https://codeload.github.com/mnsami/composer-custom-directory-installer/legacy.zip/refs/heads/master",
                 "reference": "8cc82e0c5801cc3bf53ba452afdcaa5c6ff645a5",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0",
+                "composer-plugin-api": "^2.0",
                 "php": ">=5.3"
             },
             "type": "composer-plugin",
