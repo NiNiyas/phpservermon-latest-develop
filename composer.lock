@@ -99,7 +99,7 @@
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0",
+                "composer-plugin-api": "^2.0",
                 "php": ">=5.3"
             },
             "type": "composer-plugin",
